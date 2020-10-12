@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private UIManager uiManager;
     private int score;
-    [SerializeField] private float playerSpeed = 1000f;
+    [SerializeField] private float playerSpeed = 1500f;
     [SerializeField] private float directionalSpeed = 20f;
 
     void Awake()
@@ -51,7 +51,8 @@ public class PlayerMovement : MonoBehaviour
     public void AddScore(int points)
     {
         score = score + points;
-        Debug.Log(score);
+        if (score % 5 == 0)
+            playerSpeed += 250;
         uiManager.UpdateScore(score);
     }
 }
