@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Obstacle
   - ScoreUp
+  - SpeedParticle
   layers:
   - Default
   - TransparentFX

@@ -5,11 +5,14 @@ using UnityEngine;
 public class PointCollision : MonoBehaviour
 {
     private PlayerMovement player;
+    private AudioSource score;
+    public AudioClip scoreUp;
     
     void Awake()
     {
         //get the point script on canvas
         player = GameObject.Find("Player").GetComponent<PlayerMovement>();
+        score = GetComponent<AudioSource>();
     }
     void OnTriggerEnter(Collider collision)
     {
@@ -17,6 +20,8 @@ public class PointCollision : MonoBehaviour
         {
             //add a point
             player.AddScore(1);
+            //play score sound
+            score.PlayOneShot(scoreUp, 0.1f);
         }
     }
 }
